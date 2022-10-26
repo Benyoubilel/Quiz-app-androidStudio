@@ -95,20 +95,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     void finishQuiz(){
         String passStatus;
-        if(score > totalQuestion*0.60){
-            passStatus = "Passed";
-        }else{
-            passStatus = "Failed";
-        }
+
 
         new AlertDialog.Builder(this)
-                .setTitle(passStatus)
-                .setMessage("Score is "+ score+" out of "+ totalQuestion)
+                .setMessage("Votre score est "+score+"/"+totalQuestion)
                 .setPositiveButton("Restart",(dialogInterface, i) -> restartQuiz() )
                 .setCancelable(false)
                 .show();
-
-
     }
 
     void restartQuiz(){

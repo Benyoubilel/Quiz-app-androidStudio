@@ -26,7 +26,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:text="This will be the question"
+        android:text="Question?"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -47,7 +47,7 @@
             android:id="@+id/ans_A"
             android:layout_margin="5dp"
             android:backgroundTint="@color/teal_700"
-            android:text="Ans A"
+            android:text="reponse A"
             android:textColor="@color/black"
             tools:ignore="HardcodedText" />
 
@@ -57,7 +57,7 @@
             android:id="@+id/ans_B"
             android:layout_margin="5dp"
             android:backgroundTint="@color/teal_700"
-            android:text="Ans B"
+            android:text="reponse B"
             android:textColor="@color/black"
             tools:ignore="HardcodedText" />
 
@@ -67,7 +67,7 @@
             android:id="@+id/ans_C"
             android:layout_margin="5dp"
             android:backgroundTint="@color/teal_700"
-            android:text="Ans C"
+            android:text="reponse C"
             android:textColor="@color/black"
             tools:ignore="HardcodedText" />
         <Button
@@ -76,7 +76,7 @@
             android:id="@+id/ans_D"
             android:layout_margin="5dp"
             android:backgroundTint="@color/teal_700"
-            android:text="Ans D"
+            android:text="reponse D"
             android:textColor="@color/black"
             tools:ignore="HardcodedText" />
 
@@ -86,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/submit_btn"
-        android:text="Submit"
+        android:text="Suivant"
         android:layout_below="@id/choices_layout"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/purple_200"
