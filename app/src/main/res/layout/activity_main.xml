@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/total_question"
+        android:id="@+id/nbrtotal_question"
         android:text="Total Questions "
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
@@ -42,54 +42,56 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/rep_A"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ans_A"
             android:layout_margin="5dp"
             android:backgroundTint="@color/teal_700"
             android:text="reponse A"
             android:textColor="@color/black"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
         <Button
+            android:id="@+id/rep_B"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ans_B"
             android:layout_margin="5dp"
             android:backgroundTint="@color/teal_700"
             android:text="reponse B"
-            android:textColor="@color/black"
-            tools:ignore="HardcodedText" />
+            android:textColor="#000000"
+            tools:ignore="HardcodedText,TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
         <Button
+            android:id="@+id/rep_C"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ans_C"
             android:layout_margin="5dp"
             android:backgroundTint="@color/teal_700"
             android:text="reponse C"
             android:textColor="@color/black"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText,TextContrastCheck" />
+
         <Button
+            android:id="@+id/rep_D"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ans_D"
             android:layout_margin="5dp"
             android:backgroundTint="@color/teal_700"
             android:text="reponse D"
-            android:textColor="@color/black"
-            tools:ignore="HardcodedText" />
+            android:textColor="#000000"
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
     </LinearLayout>
 
     <Button
+        android:id="@+id/suiv_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/submit_btn"
-        android:text="Suivant"
         android:layout_below="@id/choices_layout"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/purple_200"
+        android:text="Suivant"
+        android:textColor="#311B92"
         tools:ignore="HardcodedText" />
 
 </RelativeLayout>

@@ -12,15 +12,15 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView totalQuestionsTextView;
+    TextView nbrQustionTextView;
     TextView questionTextView;
-    Button ansA, ansB, ansC, ansD;
-    Button submitBtn;
+    Button repA, repB, repC, repD;
+    Button suivant;
 
     int score=0;
-    int totalQuestion = QuestionAnswer.question.length;
-    int currentQuestionIndex = 0;
-    String selectedAnswer = "";
+    int nbrQustion = QuestionAnswer.question.length;
+    int index = 0;
+    String choixSelect = "";
 
 
     @SuppressLint("SetTextI18n")
@@ -29,23 +29,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        totalQuestionsTextView = findViewById(R.id.total_question);
+        nbrQustionTextView = findViewById(R.id.nbrtotal_question);
         questionTextView = findViewById(R.id.question);
-        ansA = findViewById(R.id.ans_A);
-        ansB = findViewById(R.id.ans_B);
-        ansC = findViewById(R.id.ans_C);
-        ansD = findViewById(R.id.ans_D);
-        submitBtn = findViewById(R.id.submit_btn);
+        repA = findViewById(R.id.rep_A);
+        repB = findViewById(R.id.rep_B);
+        repC = findViewById(R.id.rep_C);
+        repD = findViewById(R.id.rep_D);
+        suivant = findViewById(R.id.suiv_btn);
 
-        ansA.setOnClickListener(this);
-        ansB.setOnClickListener(this);
-        ansC.setOnClickListener(this);
-        ansD.setOnClickListener(this);
-        submitBtn.setOnClickListener(this);
+        repA.setOnClickListener(this);
+        repB.setOnClickListener(this);
+        repC.setOnClickListener(this);
+        repD.setOnClickListener(this);
+        suivant.setOnClickListener(this);
 
-        totalQuestionsTextView.setText("Total questions : "+totalQuestion);
+        nbrQustionTextView.setText("Total questions : "+nbrQustion);
 
-        loadNewQuestion();
+        questionSuiv();
 
 
 
@@ -55,58 +55,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-        ansA.setBackgroundColor(Color.WHITE);
-        ansB.setBackgroundColor(Color.WHITE);
-        ansC.setBackgroundColor(Color.WHITE);
-        ansD.setBackgroundColor(Color.WHITE);
+        repA.setBackgroundColor(Color.WHITE);
+        repB.setBackgroundColor(Color.WHITE);
+        repC.setBackgroundColor(Color.WHITE);
+        repD.setBackgroundColor(Color.WHITE);
 
         Button clickedButton = (Button) view;
-        if(clickedButton.getId()==R.id.submit_btn){
-            if(selectedAnswer.equals(QuestionAnswer.correctAnswers[currentQuestionIndex])){
+        if(clickedButton.getId()==R.id.suiv_btn){
+            if(choixSelect.equals(QuestionAnswer.reponseCorrect[index])){
                 score++;
             }
-            currentQuestionIndex++;
-            loadNewQuestion();
+            index++;
+            questionSuiv();
 
 
         }else{
             //choices button clicked
-            selectedAnswer  = clickedButton.getText().toString();
-            clickedButton.setBackgroundColor(Color.MAGENTA);
+            choixSelect  = clickedButton.getText().toString();
+            clickedButton.setBackgroundColor(Color.BLUE);
 
         }
 
     }
 
-    void loadNewQuestion(){
+    void questionSuiv(){
 
-        if(currentQuestionIndex == totalQuestion ){
-            finishQuiz();
+        if(index == nbrQustion ){
+            endQuiz();
             return;
         }
 
-        questionTextView.setText(QuestionAnswer.question[currentQuestionIndex]);
-        ansA.setText(QuestionAnswer.choices[currentQuestionIndex][0]);
-        ansB.setText(QuestionAnswer.choices[currentQuestionIndex][1]);
-        ansC.setText(QuestionAnswer.choices[currentQuestionIndex][2]);
-        ansD.setText(QuestionAnswer.choices[currentQuestionIndex][3]);
+        questionTextView.setText(QuestionAnswer.question[index]);
+        repA.setText(QuestionAnswer.choix[index][0]);
+        repB.setText(QuestionAnswer.choix[index][1]);
+        repC.setText(QuestionAnswer.choix[index][2]);
+        repD.setText(QuestionAnswer.choix[index][3]);
 
     }
 
-    void finishQuiz(){
-        String passStatus;
+    void endQuiz(){
 
 
         new AlertDialog.Builder(this)
-                .setMessage("Votre score est "+score+"/"+totalQuestion)
-                .setPositiveButton("Restart",(dialogInterface, i) -> restartQuiz() )
+                .setMessage("Votre score est "+score+"/"+nbrQustion)
+                .setPositiveButton("Restart",(dialogInterface, i) -> rechergerQuiz() )
                 .setCancelable(false)
                 .show();
     }
 
-    void restartQuiz(){
+    void rechergerQuiz(){
         score = 0;
-        currentQuestionIndex =0;
-        loadNewQuestion();
+        index =0;
+        questionSuiv();
     }
 }

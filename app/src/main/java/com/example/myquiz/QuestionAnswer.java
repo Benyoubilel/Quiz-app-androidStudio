@@ -10,7 +10,7 @@ public class QuestionAnswer {
             "APK signifie _____ ______ ______"
     };
 
-    public static String[][] choices = {
+    public static String[][] choix = {
             {"Android est un navigateur web","Android est une application web","Android est un serveur web","Android est un système d’exploitation"},
             {"Sourceforge","Apache/MIT","OSS","Aucune des catégories ci-dessus"},
             {"Serveurs","Ordinateurs de bureau","Ordinateurs portables","Appareils mobiles"},
@@ -19,7 +19,7 @@ public class QuestionAnswer {
             {"Android Package Kit","Android Page Kit","Android Phone Kit","Aucune de ces réponses"}
     };
 
-    public static String[] correctAnswers = {
+    public static String[] reponseCorrect = {
             "Android est un système d’exploitation",
             "Apache/MIT",
             "Appareils mobiles",
